@@ -75,7 +75,9 @@ export const TodoList: React.FC = () => {
           />
         </>
       )}
-      {false && <Error error={errorMessage} setError={setErrorMessage} />}
+      {errorMessage !== ErrorType.Empty && (
+        <Error error={errorMessage} setError={setErrorMessage} />
+      )}
     </div>
   );
 };
