@@ -57,27 +57,27 @@ export const TodoList: React.FC = () => {
   };
 
   return (
-    <div className="todoapp__content">
-      <Header />
-      {loading && <Loader />}
-      {todos.length > 0 && (
-        <>
-          <section className="todoapp__main" data-cy="TodoList">
-            {filteredTodos.map(todo => (
-              <TodoItem key={todo.id} todo={todo} />
-            ))}
-          </section>
-          <Footer
-            filterStatus={filterStatus}
-            setFilterStatus={handleFilterChange}
-            todosLeft={todosLeftNum}
-            handleClearCompleted={handleClearCompleted}
-          />
-        </>
-      )}
-      {errorMessage !== ErrorType.Empty && (
-        <Error error={errorMessage} setError={setErrorMessage} />
-      )}
+    <div className="todoapp">
+      <div className="todoapp__content">
+        <Header />
+        {loading && <Loader />}
+        {todos.length > 0 && (
+          <>
+            <section className="todoapp__main" data-cy="TodoList">
+              {filteredTodos.map(todo => (
+                <TodoItem key={todo.id} todo={todo} />
+              ))}
+            </section>
+            <Footer
+              filterStatus={filterStatus}
+              setFilterStatus={handleFilterChange}
+              todosLeft={todosLeftNum}
+              handleClearCompleted={handleClearCompleted}
+            />
+          </>
+        )}
+      </div>
+      <Error error={errorMessage} setError={setErrorMessage} />
     </div>
   );
 };

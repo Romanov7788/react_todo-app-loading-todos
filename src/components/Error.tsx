@@ -1,5 +1,4 @@
 import React, { Dispatch, SetStateAction, useEffect } from 'react';
-import classNames from 'classnames';
 
 import { ErrorType } from '../types/ErrorType';
 
@@ -8,9 +7,7 @@ type Props = {
   setError: Dispatch<SetStateAction<ErrorType>>;
 };
 
-export const Error: React.FC<Props> = props => {
-  const { error, setError } = props;
-
+export const Error: React.FC<Props> = ({ error, setError }) => {
   useEffect(() => {
     if (error === ErrorType.Empty) {
       return;
@@ -28,11 +25,10 @@ export const Error: React.FC<Props> = props => {
   return (
     <div
       data-cy="ErrorNotification"
-      className={classNames(
-        'notification is-danger is-light has-text-weight-normal',
-        { hidden: error === ErrorType.Empty },
-      )}
+      className={`notification is-danger is-light has-text-weight-normal ${error ? '' : 'hidden'}`}
     >
+      {error && <span>{error}</span>}
+
       <button
         data-cy="HideErrorButton"
         type="button"
