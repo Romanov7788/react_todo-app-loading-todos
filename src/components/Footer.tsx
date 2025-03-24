@@ -1,11 +1,11 @@
-import React, { Dispatch, SetStateAction } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 
 import { FilterType } from '../types/FilterType';
 
 type Props = {
   filterStatus: FilterType;
-  setFilterStatus: Dispatch<SetStateAction<FilterType>>;
+  setFilterStatus: (filterType: FilterType) => void;
   todosLeft: number;
   handleClearCompleted: () => void;
 };

@@ -4,7 +4,7 @@ import { ErrorType } from '../types/ErrorType';
 
 type Props = {
   error: ErrorType;
-  setError: (value: string) => void;
+  setError: React.Dispatch<React.SetStateAction<ErrorType>>;
 };
 
 export const Error: React.FC<Props> = ({ error, setError }) => {
